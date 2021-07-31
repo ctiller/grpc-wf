@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install dependencies
-        run: sudo apt-get install python-devel
+        run: sudo apt-get install python3-devel
       - name: Check out repository code
         uses: actions/checkout@v2
       - name: Run sanitize
