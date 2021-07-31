@@ -19,4 +19,13 @@ jobs:
           submodules: True
       - name: Run sanitize
         run: ${{ github.workspace }}/tools/distrib/sanitize.sh
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          body: |
+            Automated changes by PanCake
+
+            We noticed that our 'sanity' test was going to fail, but we
+            think we can fix that automatically, so we put together this
+            PR to do just that!
 
