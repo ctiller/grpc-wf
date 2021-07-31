@@ -17,8 +17,8 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: True
-      - name: clang-tidy fixes
-        run: ${{ github.workspace }}/tools/distrib/clang_tidy_code.sh --fix
+          #- name: clang-tidy fixes
+          #run: ${{ github.workspace }}/tools/distrib/clang_tidy_code.sh --fix
       - name: Run sanitize
         run: ${{ github.workspace }}/tools/distrib/sanitize.sh
       - name: Create Pull Request
