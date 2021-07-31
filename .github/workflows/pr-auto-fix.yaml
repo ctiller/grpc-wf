@@ -4,7 +4,10 @@ jobs:
   PRAutoFix:
     runs-on: ubuntu-latest
     steps:
+      - name: Install dependencies
+        run: sudo apt-get install python-devel
       - name: Check out repository code
         uses: actions/checkout@v2
-      - run: ${{ github.workspace }}/tools/distrib/sanitize.sh
+      - name: Run sanitize
+        run: ${{ github.workspace }}/tools/distrib/sanitize.sh
 
