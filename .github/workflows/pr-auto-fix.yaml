@@ -1,0 +1,8 @@
+name: PR AutoFix
+on: [push]
+jobs:
+  PRAutoFix:
+    runs-on: ubuntu-latest
+    steps:
+      tools/distrib/sanitize.sh
+
