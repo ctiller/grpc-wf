@@ -4,5 +4,5 @@ jobs:
   PRAutoFix:
     runs-on: ubuntu-latest
     steps:
-      run: tools/distrib/sanitize.sh
+      - run: tools/distrib/sanitize.sh
 
