@@ -22,4 +22,6 @@ tools/distrib/check_copyright.py --fix
 tools/distrib/check_trailing_newlines.sh --fix
 tools/run_tests/sanity/check_port_platform.py --fix
 tools/distrib/clang_format_code.sh
+tools/distrib/buildifier_format_code.sh
+tools/distrib/yapf_code.sh
 
