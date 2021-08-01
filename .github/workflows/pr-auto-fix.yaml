@@ -25,8 +25,9 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
+          commit-message: Automated change: Fix sanity tests
           body: |
-            Automated changes by PanCake
+            PanCake to the rescue!
 
             We noticed that our 'sanity' test was going to fail, but we
             think we can fix that automatically, so we put together this
