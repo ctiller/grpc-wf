@@ -19,7 +19,7 @@ jobs:
           submodules: True
           fetch-depth: 0
       - name: clang-tidy fixes
-          run: ${{ github.workspace }}/tools/distrib/clang_tidy_code.sh --fix --only-changed || true
+        run: ${{ github.workspace }}/tools/distrib/clang_tidy_code.sh --fix --only-changed || true
       - name: Run sanitize
         run: ${{ github.workspace }}/tools/distrib/sanitize.sh
       - name: Create Pull Request
