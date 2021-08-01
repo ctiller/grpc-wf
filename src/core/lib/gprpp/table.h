@@ -190,7 +190,7 @@ class Table {
   }
 
   // Move from another table
-  Table& operator=(Table&& rhs) noexcept {
+  Table& operator=(Table&& rhs)  {
     // Since we may not be all clear, pass true for or_clear to have Move()
     // clear newly emptied fields.
     Move<true>(absl::make_index_sequence<sizeof...(Ts)>(),
