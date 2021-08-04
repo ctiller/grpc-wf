@@ -31,7 +31,7 @@ jobs:
         with:
           commit-message: "Automated change: Fix sanity tests"
           body: |
-            PanCake to the rescue!
+            PanCakes to the rescue!
 
             We noticed that our 'sanity' test was going to fail, but we think we can fix that automatically, so we put together this PR to do just that!
 
