@@ -23,7 +23,7 @@ jobs:
             }
       - name: Wait for cancellation
         run: sleep 60
-        if: steps.check.output.result = 'go'
+        if: steps.check.output.result == 'go'
       - name: Should build?
         run: test "${{ steps.check.outputs.result }}" = "build"
       # Cancel current runs if they're still running
