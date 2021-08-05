@@ -29,7 +29,7 @@ jobs:
             }
       - name: Wait for cancellation
         run: sleep 60
-        if: steps.check.output.result == 'go'
+        if: steps.check.outputs.result == 'go'
       - name: Should build?
         run: test "${{ steps.check.outputs.result }}" = "stay"
       # Setup to run sanity suite
