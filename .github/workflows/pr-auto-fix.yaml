@@ -12,7 +12,7 @@ jobs:
           access_token: ${{ github.token }}
       # Allow opt-out for some users
       - name: Should I Stay Or Should I Go
-        uses: actions/github-script@v2
+        uses: actions/github-script@v4
         id: check
         with:
           script: |
