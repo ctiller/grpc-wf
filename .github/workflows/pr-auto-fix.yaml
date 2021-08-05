@@ -4,6 +4,12 @@ jobs:
   PRAutoFix:
     runs-on: ubuntu-latest
     steps:
+      # Cancel current runs if they're still running
+      # (saves processing on fast pushes)
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
       # Allow opt-out for some users
       - name: Should I Stay Or Should I Go
         uses: actions/github-script@v2
@@ -11,7 +17,7 @@ jobs:
         with:
           script: |
             // If you'd like not to run this code on your commits, add your github user id here:
-            NO_AUTOFIX_USERS = []
+            NO_AUTOFIX_USERS = ["ctiller"]
             const { owner, repo } = context.repo
             if (NO_AUTOFIX_USERS.includes(context.actor)) {
               console.log('Cancelling');
@@ -26,12 +32,6 @@ jobs:
         if: steps.check.output.result == 'go'
       - name: Should build?
         run: test "${{ steps.check.outputs.result }}" = "stay"
-      # Cancel current runs if they're still running
-      # (saves processing on fast pushes)
-      - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.9.1
-        with:
-          access_token: ${{ github.token }}
       # Setup to run sanity suite
       - name: Install Python Interpreter
         uses: actions/setup-python@v2
