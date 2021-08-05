@@ -21,7 +21,7 @@ jobs:
             const { owner, repo } = context.repo
             if (NO_AUTOFIX_USERS.includes(context.actor)) {
               console.log('Cancelling');
-              const run_id = "{{ github.run_id }}";
+              const run_id = "${{ github.run_id }}";
               await github.actions.cancelWorkflowRun({ owner, repo, run_id });
               return 'go';
             } else {
