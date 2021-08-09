@@ -21,6 +21,7 @@ jobs:
               repo: "grpc-wf",
               pull_number: ${{ github.event.pull_request.number }}
             });
+            console.log(pull);
             for (let label in pull.labels) {
               console.log("label: ", label);
               if (label.name == "force-merge") {
@@ -44,6 +45,7 @@ jobs:
             if (need.size == 0) {
               return;
             }
+            console.log(need);
             var error = "Waiting for: ";
             var first = true;
             for (let status in need) {
