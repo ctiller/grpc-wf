@@ -22,7 +22,7 @@ jobs:
               pull_number: ${{ github.event.pull_request.number }}
             });
             console.log(pull);
-            for (let label in pull.labels) {
+            for (let label in pull.data.labels) {
               console.log("label: ", label);
               if (label.name == "force-merge") {
                 console.log("Saw force-merge label");
