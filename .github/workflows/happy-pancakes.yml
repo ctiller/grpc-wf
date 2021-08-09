@@ -1,0 +1,49 @@
+name: Happy Pancakes
+on:
+  - check_run
+  - status
+jobs:
+  check_status:
+    name: Check Status
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Status
+        uses: actions/github-script@v4
+        with:
+          script: |
+            let pull = await github.pulls.get({
+              owner: "grpc",
+              repo: "grpc",
+              pull_number: ${{ github.event.number }}
+            });
+            for (let label in pull.labels) {
+              if (label.name == "force-merge") {
+                console.log("Saw force-merge label");
+                return;
+              }
+            }
+            let statuses = await github.repos.listCommitStatusesForRef({
+              owner: "grpc",
+              repo: "grpc",
+              ref: "${{ github.ref }}"
+            });
+            need = new Set();
+            need.add("Bazel Basic build for C/C++");
+            need.add("Portability Tests Linux [Build Only] (internal CI)");
+            for (let status in statuses) {
+              if (status.state == "success") {
+                need.delete(status.context);
+              }
+            }
+            if (need.size == 0) {
+              return;
+            }
+            var error = "Waiting for: ";
+            var first = true;
+            for (let status in need) {
+              if (!first) error += ", ";
+              error += status;
+              first = false;
+            }
+            core.setFailed(error);
+
