@@ -21,8 +21,8 @@ jobs:
               repo: "grpc-wf",
               pull_number: ${{ github.event.pull_request.number }}
             });
-            console.log(pull.data.labels.size);
-            for (var i = 0; i < pull.data.labels.size; i++) {
+            console.log(pull.data.labels.length);
+            for (var i = 0; i < pull.data.labels.length; i++) {
               let label = pull.data.labels[i];
               console.log("label: ", label);
               if (label.name == "force-merge") {
