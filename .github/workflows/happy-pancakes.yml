@@ -12,8 +12,8 @@ jobs:
         with:
           script: |
             let pull = await github.pulls.get({
-              owner: "grpc",
-              repo: "grpc",
+              owner: "ctiller",
+              repo: "grpc-wf",
               pull_number: ${{ github.event.number }}
             });
             for (let label in pull.labels) {
@@ -23,8 +23,8 @@ jobs:
               }
             }
             let statuses = await github.repos.listCommitStatusesForRef({
-              owner: "grpc",
-              repo: "grpc",
+              owner: "ctiller",
+              repo: "grpc-wf",
               ref: "${{ github.ref }}"
             });
             need = new Set();
