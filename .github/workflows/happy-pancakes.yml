@@ -3,6 +3,7 @@ on:
   - check_run
   - check_suite
   - status
+  - label
 jobs:
   check_status:
     name: Check Status
