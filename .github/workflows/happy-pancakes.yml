@@ -4,7 +4,6 @@ on:
   - check_suite
   - status
   - label
-  - push
 jobs:
   check_status:
     name: Check Status
