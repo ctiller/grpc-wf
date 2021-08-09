@@ -3,7 +3,8 @@ on:
   pull_request:
     types: [opened, edited, labeled, unlabeled, synchronize, ready_for_review, auto_merge_enabled, auto_merge_disabled]
   status: {}
-  check_run: {}
+  check_run: [created, completed]
+  check_suite: [created, completed]
 jobs:
   check_status:
     name: Check Status
