@@ -16,7 +16,7 @@ jobs:
             let pull = await github.pulls.get({
               owner: "ctiller",
               repo: "grpc-wf",
-              pull_number: ${{ github.event.number }}
+              pull_number: ${{ github.event.pull_request.number }}
             });
             for (let label in pull.labels) {
               if (label.name == "force-merge") {
