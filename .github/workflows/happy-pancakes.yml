@@ -46,12 +46,5 @@ jobs:
               return;
             }
             console.log(need);
-            var error = "Waiting for: ";
-            var first = true;
-            for (let status in need) {
-              if (!first) error += ", ";
-              error += status;
-              first = false;
-            }
-            core.setFailed(error);
+            core.setFailed("Waiting for: " + [...need].join(', '));
 
