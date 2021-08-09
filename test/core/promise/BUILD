@@ -24,4 +24,3 @@ grpc_cc_test(
         "//:poll",
         "//test/core/util:grpc_suppressions",
     ],
-)
